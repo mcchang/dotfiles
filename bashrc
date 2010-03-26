@@ -15,7 +15,6 @@ export HISTCONTROL=ignoredups # Ignores dupes in the history
 export HISTFILESIZE=3000
 export HISTIGNORE="ls:cd:[bf]g:exit:..:...:ll:lla"
 
-
 # bash completion settings (actually, these are readline settings)
 bind "set completion-ignore-case on"
 bind "set bell-style none" # No bell
@@ -60,8 +59,8 @@ export PS1='\n\[\e${COLOR_RED}\][\u: \
 \[\e${COLOR_NC}\]\n$ ' 
 
 # Editors
-export EDITOR="vim"
-export VISUAL="vim"
+export EDITOR="mvim -f"
+export VISUAL="mvim -f"
 export PAGER="less"
 
 # Settings for getting Textmate bundles
