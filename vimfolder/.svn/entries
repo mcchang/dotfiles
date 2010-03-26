@@ -1,0 +1,95 @@
+10
+
+dir
+97
+https://svn.michaelychang.com/dotfiles/vimfolder
+https://svn.michaelychang.com
+
+
+
+2010-03-19T20:47:29.865367Z
+93
+mcchang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0610c0ed-a17a-4d5b-96b5-bd1bd998b916
+
+after
+dir
+
+colors
+dir
+
+indent
+dir
+
+.netrwhist
+file
+
+
+
+
+2010-03-19T20:46:01.000000Z
+dc11e7466d347f86850561144e51f7e0
+2010-03-19T20:47:29.865367Z
+93
+mcchang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+224
+
+doc
+dir
+
+snippets
+dir
+
+syntax
+dir
+
+autoload
+dir
+
+ftplugin
+dir
+
+compiler
+dir
+
+ctags58
+dir
+
+plugin
+dir
+

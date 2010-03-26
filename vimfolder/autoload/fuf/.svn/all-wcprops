@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/!svn/ver/93/dotfiles/vimfolder/autoload/fuf
+END
+bookmark.vim
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/93/dotfiles/vimfolder/autoload/fuf/bookmark.vim
+END
+givendir.vim
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/93/dotfiles/vimfolder/autoload/fuf/givendir.vim
+END
+mrucmd.vim
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/93/dotfiles/vimfolder/autoload/fuf/mrucmd.vim
+END
+givenfile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/93/dotfiles/vimfolder/autoload/fuf/givenfile.vim
+END
+buffer.vim
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/93/dotfiles/vimfolder/autoload/fuf/buffer.vim
+END
+callbackitem.vim
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/93/dotfiles/vimfolder/autoload/fuf/callbackitem.vim
+END
+tag.vim
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/!svn/ver/93/dotfiles/vimfolder/autoload/fuf/tag.vim
+END
+taggedfile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/93/dotfiles/vimfolder/autoload/fuf/taggedfile.vim
+END
+callbackfile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/93/dotfiles/vimfolder/autoload/fuf/callbackfile.vim
+END
+givencmd.vim
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/93/dotfiles/vimfolder/autoload/fuf/givencmd.vim
+END
+dir.vim
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/!svn/ver/93/dotfiles/vimfolder/autoload/fuf/dir.vim
+END
+file.vim
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/!svn/ver/93/dotfiles/vimfolder/autoload/fuf/file.vim
+END
+mrufile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/93/dotfiles/vimfolder/autoload/fuf/mrufile.vim
+END

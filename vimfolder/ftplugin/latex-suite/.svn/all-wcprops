@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite
+END
+version.vim
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/version.vim
+END
+texproject.vim
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/texproject.vim
+END
+mathmacros-utf.vim
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/mathmacros-utf.vim
+END
+texmenuconf.vim
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/texmenuconf.vim
+END
+texrc
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/texrc
+END
+envmacros.vim
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/envmacros.vim
+END
+mathmacros.vim
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/mathmacros.vim
+END
+elementmacros.vim
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/elementmacros.vim
+END
+brackets.vim
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/brackets.vim
+END
+templates.vim
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/templates.vim
+END
+wizardfuncs.vim
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/wizardfuncs.vim
+END
+projecttemplate.vim
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/projecttemplate.vim
+END
+smartspace.vim
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/smartspace.vim
+END
+multicompile.vim
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/multicompile.vim
+END
+pytools.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/pytools.py
+END
+compiler.vim
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/compiler.vim
+END
+bibtools.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/bibtools.py
+END
+outline.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/outline.py
+END
+bibtex.vim
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/bibtex.vim
+END
+packages.vim
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/packages.vim
+END
+diacritics.vim
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/diacritics.vim
+END
+custommacros.vim
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/custommacros.vim
+END
+folding.vim
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/folding.vim
+END
+texviewer.vim
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/texviewer.vim
+END
+main.vim
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/93/dotfiles/vimfolder/ftplugin/latex-suite/main.vim
+END

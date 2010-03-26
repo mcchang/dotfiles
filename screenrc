@@ -1,0 +1,32 @@
+# Remove Dangerous Key Bindings 
+bind k
+bind ^k
+bind .
+bind ^\
+bind \\
+bind ^h
+bind h
+
+# ... and make them better.
+bind 'K' kill
+bind '}' history
+
+# Remove startup message
+startup_message off
+
+# Visual Bell Settings
+vbell on
+vbell_msg "Failboat"
+
+# Status bar at the bottom
+hardstatus alwayslastline '%{= km}[ %{b}%H %{m}][%= %{= kw}%?%-Lw%?%{r}<%{y}%n*%f%t%?(%u)%?%{r}>%{w}%?%+Lw%?%?%= %{m}][%{b} %M %d, %Y %{W}%c:%s %{m}]'
+
+shell -/bin/bash
+
+# detach on hangup
+autodetach on
+
+defscrollback 20000 
+
+# Better Scrollbar Behavior
+termcapinfo xterm-color ti@:te@
