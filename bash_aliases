@@ -29,12 +29,6 @@ alias grep='grep --color=auto'
 alias g='grep -i'
 alias f='find . -iname'
 
-# 1530
-alias awardable='workon awardable; cd ~/Documents/src/virtualenvs/awardable/src'
-alias htmlparse='workon htmlparse; cd ~/Documents/src/virtualenvs/htmlparse/'
-alias redeem='workon redeem; cd ~/Documents/src/virtualenvs/redeem/src'
-alias m='./manage.py'
-
 # mysql
 alias startmysqld='cd /usr/local/Cellar/mysql/5.1.44 ; /usr/local/Cellar/mysql/5.1.44/bin/mysqld_safe & ; cd -'
 
@@ -45,7 +39,6 @@ alias res='workon research; cd ~/Documents/src/virtualenvs/research/'
 # SSH
 alias 188='ssh cs188-az@cory.eecs.berkeley.edu'
 alias 162='ssh cs162-cc@cory.eecs.berkeley.edu'
-alias 1530='ssh mchang@ssh.1530technologies.com'
 alias mb='ssh mcchang@xtrahotsauce.redirectme.net'
 alias irc='ssh mcchang@irc.housing.berkeley.edu'
 
