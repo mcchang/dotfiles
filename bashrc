@@ -1,3 +1,7 @@
+# Source other files
+. ~/.bash_aliases
+. ~/.bash_functions
+
 # Colors
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto'
@@ -10,10 +14,14 @@ else
     alias ls='ls -G'
 fi
 
+# cd
+export CDPATH=($HOME/Dropbox/school/S10:$HOME/Documents/src)
+
 # History
 export HISTCONTROL=ignoredups # Ignores dupes in the history
 export HISTFILESIZE=3000
-export HISTIGNORE="ls:cd:[bf]g:exit:..:...:ll:lla"
+export HISTSIZE=100
+export HISTIGNORE="&:[ ]*:ls:cd:[bf]g:exit:..:...:ll:lla"
 
 # bash completion settings (actually, these are readline settings)
 bind "set completion-ignore-case on"
@@ -66,9 +74,6 @@ export PAGER="less"
 # Settings for getting Textmate bundles
 export LC_CTYPE=en_US.UTF-8
 
-# Source aliases
-. ~/.bash_aliases
-. ~/.bash_functions
 
 # Source virtualenvwrapper
 if [ "$OS" = "darwin" ]; then
