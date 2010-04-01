@@ -86,27 +86,10 @@ set nolist
 
 " Tabs
 set smarttab
-function! Tabstyle_tabs()
-  " Using 4 column tabs
-  set softtabstop=4
-  set shiftwidth=4
-  set tabstop=4
-  set noexpandtab
-  autocmd User Rails set softtabstop=4
-  autocmd User Rails set shiftwidth=4
-  autocmd User Rails set tabstop=4
-  autocmd User Rails set noexpandtab
-endfunction
- 
-function! Tabstyle_spaces()
-  " Use 4 spaces
-  set softtabstop=4
-  set shiftwidth=4
-  set tabstop=4
-  set expandtab
-endfunction
- 
-call Tabstyle_spaces()
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
+set expandtab
 
 " Plugins
 " NERDTree
