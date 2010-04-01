@@ -30,7 +30,7 @@ alias g='grep -i'
 alias f='find . -iname'
 
 # mysql
-alias startmysqld='cd /usr/local/Cellar/mysql/5.1.44 ; /usr/local/Cellar/mysql/5.1.44/bin/mysqld_safe & ; cd -'
+alias startmysqld='cd /usr/local/Cellar/mysql/5.1.44 ; /usr/local/Cellar/mysql/5.1.44/bin/mysqld_safe &'
 
 # research
 alias res='workon research; cd ~/Documents/src/virtualenvs/research/'
@@ -71,5 +71,5 @@ alias p='python'
 if [ "$OS" = "linux" ]; then 
 	alias v='vim' 
 else
-	alias v='/Applications/MacVim.app/Contents/MacOS/Vim -g'
+	alias v='mvim'
 fi
