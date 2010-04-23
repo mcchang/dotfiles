@@ -15,7 +15,7 @@ else
 fi
 
 # cd
-export CDPATH=($HOME/Dropbox/school/S10:$HOME/Documents/src)
+# export CDPATH=($HOME/Dropbox/school/S10:$HOME/Documents/src)
 
 # History
 export HISTCONTROL=ignoredups # Ignores dupes in the history

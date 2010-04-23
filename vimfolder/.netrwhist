@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/mcchang/Documents/src/virtualenvs/awardable'
-let g:netrw_dirhist_2='/Users/mcchang/Dropbox/school/resume'
-let g:netrw_dirhist_3='/etc/X11'
+let g:netrw_dirhist_1='/Users/mcchang/Dropbox/school/S10/CS164/proj2-funcdecl'
+let g:netrw_dirhist_2='/Users/mcchang/Dropbox/school/S10/CS164'
+let g:netrw_dirhist_3='/Users/mcchang/Dropbox/school/S10/CS164/proj2'

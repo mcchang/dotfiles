@@ -40,8 +40,8 @@ set showcmd
 set ruler
 
 " Line Wrapping
-" set nowrap
-" set linebreak
+set wrap
+set linebreak
 
 " Mappings
 imap jj <Esc>
