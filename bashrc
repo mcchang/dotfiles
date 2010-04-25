@@ -67,8 +67,12 @@ export PS1='\n\[\e${COLOR_RED}\][\u: \
 \[\e${COLOR_NC}\]\n$ ' 
 
 # Editors
-export EDITOR="mvim -f"
-export VISUAL="mvim -f"
+export EDITOR="vim"
+export VisuAL="vim"
+if [ "$OS" = "darwin" ]; then
+    export EDITOR="mvim -f"
+    export VISUAL="mvim -f"
+fi
 export PAGER="less"
 
 # Settings for getting Textmate bundles
