@@ -112,6 +112,8 @@ let g:miniBufExplModSelTarget = 1
 let Tlist_Ctags_Cmd='/usr/bin/ctags'
 if has("gui_win32")
   let Tlist_Ctags_Cmd='C:/ctags58/ctags.exe'  
+elseif has("gui_macvim")
+  let TList_Ctags_Cmd='/usr/local/bin/ctags'
 end
 
 " Shortcuts for tasklist and taglist
