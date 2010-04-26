@@ -68,7 +68,7 @@ export PS1='\n\[\e${COLOR_RED}\][\u: \
 
 # Editors
 export EDITOR="vim"
-export VisuAL="vim"
+export VISUAL="vim"
 if [ "$OS" = "darwin" ]; then
     export EDITOR="mvim -f"
     export VISUAL="mvim -f"
