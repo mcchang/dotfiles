@@ -25,6 +25,9 @@ alias ll='ls -lh'
 alias la='ls -a'
 alias lla='ls -lah'
 
+# mkdir
+alias mkdir='mkdir -p'
+
 # history
 alias h='history'
 alias hf='history | grep'
