@@ -7,21 +7,21 @@
 " OS Specific *****************************************************************
 if has("gui_macvim")
  
-  set fuoptions=maxvert,maxhorz " fullscreen options (MacVim only), resized window when changed to fullscreen
-  set guifont=Menlo:h11
+  " fullscreen options (MacVim only), resized window when changed to fullscreen
+  set fuoptions=maxvert,maxhorz 
+  set guifont=Menlo:h13
   set guioptions-=T  " remove toolbar
-  let macvim_hig_shift_movement = 1 " mimic texedit 
   colorscheme ir_black 
  
 elseif has("gui_gtk2")
  
-  set guifont=Monaco
+  set guifont=Monospace
   set guioptions-=T  " remove toolbar
   colorscheme ir_black
  
 elseif has("x11")
-	set guifont=Monospace
-	colorscheme ir_black
+    set guifont=Monospace
+    colorscheme ir_black
 elseif has("gui_win32")
 end
  

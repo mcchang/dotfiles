@@ -29,4 +29,4 @@ autodetach on
 defscrollback 20000 
 
 # Better Scrollbar Behavior
-termcapinfo xterm-color ti@:te@
+termcapinfo xterm* ti@:te@

@@ -1,8 +1,17 @@
 scriptencoding utf-8
 
+" File
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
+" Encoding
+set encoding=utf-8
+
+
 " Setup
-set nocompatible	
-" "setlocal spell spelllang=en_us
+set nocompatible
+set modelines=0
 
 " Indenting
 set ai
@@ -10,10 +19,12 @@ set si
 
 " Scrollbars
 set sidescrolloff=2
+set scrolloff=3
 set numberwidth=4
 
 " Wildmenu
 set wildmenu
+set wildmode=list:longest
 set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
 
 " Windows
@@ -25,42 +36,64 @@ set splitbelow splitright
 set cursorline
 
 " Search
+nnoremap / /\v
+vnoremap / /\v
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set gdefault
+set showmatch
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
 
-" Colors 
+" Colors
 set background=dark
 colorscheme default
 syntax on
 
+" Leader
+let mapleader = "," 
+
 " Status
 set showcmd
+set showmode
 set ruler
 
 " Line Wrapping
 set wrap
-set linebreak
+set textwidth=79
+set formatoptions=qrn1
+" set colorcolumn=85"
+" set linebreak
 
 " Mappings
 imap jj <Esc>
 imap uu _
 imap hh =>
 imap aa @
+nnoremap ; :
+" nnoremap <leader>a :Ack
+" #Reminder#
+" <leader>c<space> = comment!"
 
-" File
-filetype plugin indent on
+" Leader Mappings
+nnoremap <leader>w <C-w>v<C-w>l
 
 " Insert New Line
 map <S-Enter> O<ESC>
 map <Enter> o<ESC>
+
+" Save when losing focus "
+au FocusLost * :wa
 
 " Sessions
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 
 " Misc
 " set autowriteall
+set visualbell
 set autowrite
 set bs=indent,eol,start
 set number
@@ -69,27 +102,38 @@ set matchpairs+=<:>
 set vb t_vb=
 set history=50          " keep 50 lines of command history
 set viminfo='20,\"500   " Keep a .viminfo file.
+set ttyfast
+set laststatus=2
 
 " Invisible Chars
-set listchars=trail:.,tab:>-,eol:$
-set nolist
+" set listchars=trail:.,tab:>-,eol:$
+set listchars=tab:▸\ ,eol:¬
+set list
 :noremap ,i :set list!<CR>
 
 " Cursor Movement
 "map <up> gk
-"map k gk
+map k gk
 "imap <up> <C-o>gk
 "map <down> gj
-"map j gj
+map j gj
 "imap <down> <C-o>gj
 "map E ge
-
+ 
 " Tabs
 set smarttab
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
+set softtabstop=2
+set shiftwidth=2
+set tabstop=8
 set expandtab
+
+
+" Persistent Undo
+" only if in mvim for now
+if has("gui_macvim")
+    set undofile
+    set undodir=~/.undo 
+end
 
 " Plugins
 " NERDTree
@@ -109,15 +153,17 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
 " Uses Exuberant Ctags instead of unix ctags for taglist
-let Tlist_Ctags_Cmd='/usr/bin/ctags'
-if has("gui_win32")
-  let Tlist_Ctags_Cmd='C:/ctags58/ctags.exe'  
-elseif has("gui_macvim")
-  let TList_Ctags_Cmd='/usr/local/bin/ctags'
-end
+" let Tlist_Ctags_Cmd='/usr/bin/ctags'
+let TList_Ctags_Cmd='/usr/local/bin/ctags'
+" if has("gui_win32")
+""  let Tlist_Ctags_Cmd='C:/ctags58/ctags.exe'  
+""elseif has("gui_macvim")
+""  let TList_Ctags_Cmd='/usr/local/bin/ctags'
+""  let macvim_hig_shift_movement = 1 " mimic texedit 
+""end
 
 " Shortcuts for tasklist and taglist
-map T :TaskList<CR>
+map L :TaskList<CR>
 map P :TlistToggle<CR>
 
 " Python autocomplete

@@ -18,7 +18,7 @@ fi
 # export CDPATH=($HOME/Dropbox/school/S10:$HOME/Documents/src)
 
 # History
-export HISTCONTROL=ignoredups # Ignores dupes in the history
+export HISTCONTROL=Ignoredboth # Ignores dupes in the history
 export HISTFILESIZE=3000
 export HISTSIZE=100
 export HISTIGNORE="&:[ ]*:ls:cd:[bf]g:exit:..:...:ll:lla"
@@ -49,7 +49,11 @@ export SVNCODE='https://svn.rescomp.berkeley.edu/code'
 export SVNTM='http://svn.textmate.org/trunk/Bundles'
 export SVN162='https://isvn.eecs.berkeley.edu/cs162/group8'
 export SVN188='http://cs188.unfuddle.com/svn/'
+export SVNAPP='https://aesvn.apple.com/svn/'
 export WF='mcchang@mcchang.webfactional.com'
+
+# CVS
+export CVS_RSH='ssh'
 
 # CS164
 export MYREPOS='svn+ssh://cs164-ta@torus.cs.berkeley.edu/cs164-cn'
@@ -68,7 +72,7 @@ export PS1='\n\[\e${COLOR_RED}\][\u: \
 
 # Editors
 export EDITOR="vim"
-export VisuAL="vim"
+export VISUAL="vim"
 if [ "$OS" = "darwin" ]; then
     export EDITOR="mvim -f"
     export VISUAL="mvim -f"
@@ -80,12 +84,14 @@ export LC_CTYPE=en_US.UTF-8
 
 
 # Source virtualenvwrapper
-if [ "$OS" = "darwin" ]; then
-	. /usr/local/bin/virtualenvwrapper_bashrc
-fi
+# if [ "$OS" = "darwin" ]; then
+#    	. /usr/local/bin/virtualenvwrapper_bashrc
+# fi
 
 # Misc
 # facilitates inverting selections
+shopt -s cdspell
+shopt -s histappend
 shopt -s extglob
 shopt -s checkwinsize # After each command, checks the windows size and changes lines and columns
 
