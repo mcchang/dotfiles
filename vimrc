@@ -152,20 +152,6 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
-" Uses Exuberant Ctags instead of unix ctags for taglist
-" let Tlist_Ctags_Cmd='/usr/bin/ctags'
-let TList_Ctags_Cmd='/usr/local/bin/ctags'
-" if has("gui_win32")
-""  let Tlist_Ctags_Cmd='C:/ctags58/ctags.exe'  
-""elseif has("gui_macvim")
-""  let TList_Ctags_Cmd='/usr/local/bin/ctags'
-""  let macvim_hig_shift_movement = 1 " mimic texedit 
-""end
-
-" Shortcuts for tasklist and taglist
-map L :TaskList<CR>
-map P :TlistToggle<CR>
-
 " Python autocomplete
 set ofu=syntaxcomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
