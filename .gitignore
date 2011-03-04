@@ -8,4 +8,5 @@ foo.txt
 # Ignore objects and archives.
 *.[oa]
 .DS_Store
+*/.DS_Store
 undo/*
