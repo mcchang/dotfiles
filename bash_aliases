@@ -5,6 +5,9 @@ function ds {
   echo $1: `du -ch $1 | tail -n 1 | cut -f1`
 }
 
+# version control
+alias git=hub
+
 # cd
 alias ..='cd ..'
 alias ...='cd ..; cd ..;'
