@@ -10,3 +10,4 @@ foo.txt
 .DS_Store
 */.DS_Store
 undo/*
+vimfolder/.netrwhist
