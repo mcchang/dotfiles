@@ -11,3 +11,4 @@ foo.txt
 */.DS_Store
 undo/*
 vimfolder/.netrwhist
+*.swp

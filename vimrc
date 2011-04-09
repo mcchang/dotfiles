@@ -3,6 +3,7 @@ scriptencoding utf-8
 " File
 filetype off
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 filetype plugin indent on
 
 " Encoding
@@ -63,8 +64,13 @@ set ruler
 
 " Line Wrapping
 set wrap
-set textwidth=79
+" set textwidth=79
 set formatoptions=qrn1
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 " set colorcolumn=85"
 " set linebreak
 
@@ -122,8 +128,8 @@ map j gj
  
 " Tabs
 set smarttab
-set softtabstop=2
-set shiftwidth=2
+set softtabstop=4
+set shiftwidth=4
 set tabstop=8
 set expandtab
 
@@ -154,5 +160,12 @@ let g:miniBufExplModSelTarget = 1
 
 " Python autocomplete
 set ofu=syntaxcomplete#Complete
+set completeopt=longest,menuone
+:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType python set complete+=k~/vimfiles/syntax/python.vim isk+=.,(
