@@ -2,6 +2,7 @@
 
 # Modified from http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen
 git_bundles = [
+  "git://git.wincent.com/command-t.git",
   "git://github.com/edsono/vim-matchit.git",
   "git://github.com/msanders/snipmate.vim.git",
   "git://github.com/scrooloose/nerdcommenter.git",
@@ -41,6 +42,8 @@ git_bundles.each do |url|
   `git clone #{url} #{dir}`
   FileUtils.rm_rf(File.join(dir, ".git"))
 end
+
+# TODO: automate "/usr/bin/rake make in command-t directory
 
 vim_org_scripts.each do |name, script_id, script_type|
   puts "  Downloading #{name}"
