@@ -15,8 +15,8 @@ set nocompatible
 set modelines=0
 
 " Indenting
-set ai
-set si
+set autoindent
+set smartindent
 
 " Scrollbars
 set sidescrolloff=2
@@ -112,7 +112,6 @@ set ttyfast
 set laststatus=2
 
 " Invisible Chars
-" set listchars=trail:.,tab:>-,eol:$
 set listchars=tab:▸\ ,eol:¬
 set list
 :noremap ,i :set list!<CR>
@@ -128,8 +127,8 @@ map j gj
  
 " Tabs
 set smarttab
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=2
+set shiftwidth=2
 set tabstop=8
 set expandtab
 
@@ -141,9 +140,7 @@ if has("gui_macvim")
     set undodir=~/.undo 
 end
 
-" Plugins
-" NERDTree
-" autocmd VimEnter * exe 'NERDTree' | wincmd l
+" Plugin shortcuts
 :noremap ,n :NERDTreeToggle<CR>
 let NERDTreeMouseMode=1
 
@@ -161,11 +158,7 @@ let g:miniBufExplModSelTarget = 1
 " Python autocomplete
 set ofu=syntaxcomplete#Complete
 set completeopt=longest,menuone
-" :inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-"   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-" 
-" inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-"   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
+" Filetype speciic options
+autocmd FileType python setlocal shiftwidth=4 softtabstop=4
 autocmd FileType python set omnifunc=pythoncomplete#Complete
