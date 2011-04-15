@@ -11,6 +11,9 @@ alias git=hub
 # cd
 alias ..='cd ..'
 alias ...='cd ..; cd ..;'
+function cdb {
+  boom $1 &> /dev/null && cd $(pbpaste)
+}
 
 # ls
 alias ll='ls -lh'
