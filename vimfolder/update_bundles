@@ -3,7 +3,9 @@
 # Modified from http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen
 git_bundles = [
   "git://git.wincent.com/command-t.git",
+  "git://github.com/altercation/vim-colors-solarized.git"
   "git://github.com/edsono/vim-matchit.git",
+  "git://github.com/majutsushi/tagbar.git",
   "git://github.com/msanders/snipmate.vim.git",
   "git://github.com/scrooloose/nerdcommenter.git",
   "git://github.com/scrooloose/nerdtree.git",
@@ -19,11 +21,12 @@ git_bundles = [
   "git://github.com/vim-scripts/python_match.vim.git",
   "git://github.com/fholgado/minibufexpl.vim.git",
   "git://github.com/ervandew/supertab.git",
+  "git://github.com/yumyai/taglist.vim",
 ]
 
 vim_org_scripts = [
-  ["gist",          "12732", "plugin"],
-# ["minibufexpl",   "159",   ""],
+#  ["gist",          "12732", "plugin"],
+#  ["minibufexpl",   "159",   ""],
 ]
 
 require 'fileutils'
@@ -43,7 +46,7 @@ git_bundles.each do |url|
   FileUtils.rm_rf(File.join(dir, ".git"))
 end
 
-# TODO: automate "/usr/bin/rake make in command-t directory
+# TODO: automate "/usr/bin/rake make" in command-t directory
 
 vim_org_scripts.each do |name, script_id, script_type|
   puts "  Downloading #{name}"

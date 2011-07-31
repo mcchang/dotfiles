@@ -19,9 +19,11 @@ fi
 
 # History
 export HISTCONTROL=Ignoredboth # Ignores dupes in the history
-export HISTFILESIZE=3000
-export HISTSIZE=100
+export HISTFILESIZE=10000
+export HISTSIZE=100000
 export HISTIGNORE="&:[ ]*:ls:cd:[bf]g:exit:..:...:ll:lla"
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # bash completion settings (actually, these are readline settings)
 bind "set completion-ignore-case on"
@@ -91,6 +93,7 @@ export LC_CTYPE=en_US.UTF-8
 # Misc
 # facilitates inverting selections
 shopt -s cdspell
+# append to history, don't overwrite it.
 shopt -s histappend
 shopt -s extglob
 shopt -s checkwinsize # After each command, checks the windows size and changes lines and columns

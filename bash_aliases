@@ -48,3 +48,6 @@ alias iip="ifconfig | grep '192.168' | cut -d' ' -f2 | head -n 1"
 # Apple-specific aliases
 alias showhidden='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
 alias hidehidden='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
+
+# Misc
+alias tcdropbox='tc -t -k "" --protect-hidden=no --mount /Users/mcchang/Dropbox/tc /Volumes/tc'

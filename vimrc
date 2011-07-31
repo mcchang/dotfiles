@@ -51,8 +51,8 @@ vnoremap <tab> %
 
 " Colors
 set background=dark
-colorscheme default
-syntax on
+colorscheme solarized
+syntax enable
 
 " Leader
 let mapleader = "," 
@@ -134,7 +134,7 @@ set expandtab
 
 
 " Persistent Undo
-" only if in mvim for now
+" only if in MacVim for now
 if has("gui_macvim")
     set undofile
     set undodir=~/.undo 
@@ -143,11 +143,7 @@ end
 " Plugin shortcuts
 :noremap ,n :NERDTreeToggle<CR>
 let NERDTreeMouseMode=1
-
-" fuzzyfinder
-map ,b :FufBuffer<CR>
-map ,f :FufFile<CR>
-let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
+nnoremap ,r :TlistToggle<CR>
 
 " Shortcuts for miniBufExpl
 let g:miniBufExplMapWindowNavVim = 1
@@ -159,6 +155,9 @@ let g:miniBufExplModSelTarget = 1
 set ofu=syntaxcomplete#Complete
 set completeopt=longest,menuone
 
+" Supertab
+let g:SuperTabCrMapping = 0
+
 " Filetype speciic options
-autocmd FileType python setlocal shiftwidth=4 softtabstop=4
+autocmd FileType python setlocal shiftwidth=2 softtabstop=4
 autocmd FileType python set omnifunc=pythoncomplete#Complete
