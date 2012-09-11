@@ -1,3 +1,6 @@
 [submodule "vimfolder/bundle/command-t"]
 	path = vimfolder/bundle/command-t
 	url = git://git.wincent.com/command-t.git
+[submodule "ftplugin/python/pyflakes"]
+	path = ftplugin/python/pyflakes
+	url = git@github.com:kevinw/pyflakes.git

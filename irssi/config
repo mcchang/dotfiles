@@ -1,62 +1,20 @@
-# WARNING! This file is under confman revision control. DO NOT MODIFY DIRECTLY!
-# Managed under irc module.
-# $Id: irssi.conf 4441 2008-02-19 23:44:52Z terrio $
-
 servers = (
   {
-    address = "irc.apple.com";
+    address = "localhost";
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
-  }
+    password = "Green2White";
+    chatnet = "tellapart";
+  },
+  { address = "irc.freenode.net"; autoconnect = "yes"; }
 );
 
-chatnets = {
-  rsspit = {
-    type = "IRC";
-    max_kicks = "4";
-    max_msgs = "5";
-    max_whois = "4";
-    max_query_chans = "5";
-  };
-  IRCnet = {
-    type = "IRC";
-    max_kicks = "4";
-    max_msgs = "5";
-    max_whois = "4";
-    max_query_chans = "5";
-  };
-  EFNet = { 
-    type = "IRC";
-    max_kicks = "4";
-    max_msgs = "3";
-    max_whois = "1";
-  };
-  Undernet = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  DALnet = {
-    type = "IRC";
-    max_kicks = "4";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  QuakeNet = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  SILC = { type = "SILC"; };
-};
+chatnets = { tellapart = { type = "IRC"; }; freenode = { type = "IRC"; }; };
 
-channels = (
-  { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
-  { name = "silc"; chatnet = "silc"; autojoin = "No"; }
+channels = ( 
+  { name = "#eng"; chatnet = "tellapart"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -204,8 +162,8 @@ statusbar = {
 settings = {
   core = {
     real_name = "Michael Chang";
-    user_name = "mcchang";
-    nick = "mcchang";
+    user_name = "mc_hang";
+    nick = "mc_hang";
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { theme = "revolution"; term_charset = "utf-8"; };
@@ -213,3 +171,8 @@ settings = {
 };
 logs = { };
 ignores = ( { level = "JOINS PARTS QUITS NICKS"; } );
+
+bell_beeps = "ON";
+beep_msg_level = "MSGS NOTICES DCC DCCMSGS HILIGHT";
+NOTICES = "DCC";
+DCCMSGS = "HILIGHT";

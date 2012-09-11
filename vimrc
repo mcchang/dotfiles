@@ -2,17 +2,35 @@ scriptencoding utf-8
 
 " File
 filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+" Github repos.
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'ervandew/supertab'
+Bundle 'kevinw/pyflakes-vim'
+Bundle 'majutsushi/tagbar'
+" Non-Github repos.
+Bundle 'git://git.wincent.com/command-t.git'
+
 filetype plugin indent on
 
 " Encoding
 set encoding=utf-8
 
-
 " Setup
-set nocompatible
-set modelines=0
+set nocompatible " Disable vi compatibility.
+set history=256 " Number of things to remember in history.
+set timeoutlen=250 " Time to wait after ESC
+set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
+
+" Formatting
+set formatoptions=qn1 " TODO(mike): Figure out what I want to do here.
+set formatoptions+=o "Automatically insert the comment leader after 'o' or 'O' in normal
+set formatoptions-=r "Do not automatically insert a comment leader after an enter.
+set formatoptions-=t " Do no auto-wrap text using textwidth (does not apply to comments)
 
 " Indenting
 set autoindent
@@ -21,12 +39,11 @@ set smartindent
 " Scrollbars
 set sidescrolloff=2
 set scrolloff=3
-set numberwidth=4
 
 " Wildmenu
 set wildmenu
 set wildmode=list:longest
-set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
+set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov,*.class
 
 " Windows
 set splitbelow splitright
@@ -39,12 +56,12 @@ set cursorline
 " Search
 nnoremap / /\v
 vnoremap / /\v
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
+set hlsearch " Highlighting search.
+set incsearch " Incremental search.
+set ignorecase " Ignore case when searching.
+set smartcase " Be case sensitive when there's a capital letter.
 set gdefault
-set showmatch
+set showmatch " Show matching brackets.
 nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
@@ -58,22 +75,20 @@ syntax enable
 let mapleader = "," 
 
 " Status
-set showcmd
+set showcmd " Display an incomplete command in the lower right of the window.
 set showmode
-set ruler
+set ruler " Show ruler.
 
 " Line Wrapping
-set wrap
+set nowrap
 " set textwidth=79
-set formatoptions=qrn1
+
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=81
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
-" set colorcolumn=85"
 " set linebreak
-
 " Mappings
 imap jj <Esc>
 imap uu _
@@ -98,18 +113,21 @@ au FocusLost * :wa
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 
 " Misc
-" set autowriteall
-set visualbell
-set autowrite
-set bs=indent,eol,start
+set novisualbell " No blinking.
+set noerrorbells " No noise.
+set autowrite " Writes on make/shell commands, next buffer, etc.
+set autoread " Refresh files if they've changed outside of vim.
+set backspace=indent,eol,start
 set number
-set numberwidth=3
+" set numberwidth=3
 set matchpairs+=<:>
-set vb t_vb=
+set vb t_vb= " Disable any beeps or flashes on error.
 set history=50          " keep 50 lines of command history
 set viminfo='20,\"500   " Keep a .viminfo file.
 set ttyfast
-set laststatus=2
+set laststatus=2 " Always show status line.
+set shortmess=atI "Shortens messages.
+set clipboard=unnamed "Regular vim yanking will copy to OS clipboard.
 
 " Invisible Chars
 set listchars=tab:▸\ ,eol:¬
@@ -126,12 +144,12 @@ map j gj
 "map E ge
  
 " Tabs
-set smarttab
+set smarttab " Smarter tab levels.
 set softtabstop=2
-set shiftwidth=2
-set tabstop=8
-set expandtab
-
+set shiftwidth=2 " Default shiftwidth for indents.
+set tabstop=8 " Default tabstop.
+set expandtab " Makes tabs into spaces (set by tabstop)
+set shiftround
 
 " Persistent Undo
 " only if in MacVim for now
@@ -145,6 +163,12 @@ end
 let NERDTreeMouseMode=1
 nnoremap ,r :TlistToggle<CR>
 
+" Flush CommandT Buffer
+noremap <leader>f <Esc>:CommandTFlush<CR>
+
+" Settings for CommandT
+let g:CommandTMaxFiles = 15000
+
 " Shortcuts for miniBufExpl
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
@@ -157,6 +181,12 @@ set completeopt=longest,menuone
 
 " Supertab
 let g:SuperTabCrMapping = 0
+
+" Powerline
+let g:Powerline_symbols = 'fancy'
+
+" TagBar
+nmap <F8> :TagbarToggle<CR>
 
 " Filetype speciic options
 autocmd FileType python setlocal shiftwidth=2 softtabstop=4
