@@ -1,17 +1,24 @@
 scriptencoding utf-8
 
+
 " File
 filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 " Github repos.
 Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
 Bundle 'kevinw/pyflakes-vim'
+" Bundle 'airblade/vim-gitgutter'
+" Still need to learn how to use.
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
+Bundle 'vim-scripts/EasyGrep'
 " Non-Github repos.
 Bundle 'git://git.wincent.com/command-t.git'
 
@@ -44,6 +51,8 @@ set scrolloff=3
 set wildmenu
 set wildmode=list:longest
 set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov,*.class
+set wildignore+=/Users/mike/src/tellapart/third_party/tungsten/*
+set wildignore+=/Users/mike/src/tellapart/eye/*
 
 " Windows
 set splitbelow splitright
@@ -72,7 +81,7 @@ colorscheme solarized
 syntax enable
 
 " Leader
-let mapleader = "," 
+let mapleader = ","
 
 " Status
 set showcmd " Display an incomplete command in the lower right of the window.
@@ -84,17 +93,17 @@ set nowrap
 " set textwidth=79
 
 if exists('+colorcolumn')
-  set colorcolumn=81
+  set colorcolumn=80
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 " set linebreak
 " Mappings
-imap jj <Esc>
-imap uu _
-imap hh =>
-imap aa @
-nnoremap ; :
+" imap jj <Esc>
+" imap uu _
+" imap hh =>
+" imap aa @
+" nnoremap ; :
 " nnoremap <leader>a :Ack
 " #Reminder#
 " <leader>c<space> = comment!"
@@ -142,7 +151,7 @@ map k gk
 map j gj
 "imap <down> <C-o>gj
 "map E ge
- 
+
 " Tabs
 set smarttab " Smarter tab levels.
 set softtabstop=2
@@ -151,12 +160,8 @@ set tabstop=8 " Default tabstop.
 set expandtab " Makes tabs into spaces (set by tabstop)
 set shiftround
 
-" Persistent Undo
-" only if in MacVim for now
-if has("gui_macvim")
-    set undofile
-    set undodir=~/.undo 
-end
+set undofile
+set undodir=~/.vim/undo
 
 " Plugin shortcuts
 :noremap ,n :NERDTreeToggle<CR>
@@ -185,9 +190,26 @@ let g:SuperTabCrMapping = 0
 " Powerline
 let g:Powerline_symbols = 'fancy'
 
+" let g:pyflakes_use_quickfix = 0
+
 " TagBar
 nmap <F8> :TagbarToggle<CR>
+nmap <F7> :TagbarOpen j<CR>
 
-" Filetype speciic options
+" GitGutter
+" nmap gh <Plug>GitGutterNextHunk
+" nmap gH <Plug>GitGutterPrevHunk
+" Always highlight lines.
+" let g:gitgutter_highlight_lines = 1
+" Turn off eager mode.
+" let g:gitgutter_eager = 0
+
+" Filetype specific options
 autocmd FileType python setlocal shiftwidth=2 softtabstop=4
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd BufWrite * :%s/\s\+$//e
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
+" Make it so I can actually edit my crontab.
+au FileType crontab set nobackup nowritebackup
+
