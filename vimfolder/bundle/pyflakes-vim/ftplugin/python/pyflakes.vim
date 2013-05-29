@@ -25,7 +25,7 @@ if !exists("b:did_python_init")
     let b:did_python_init = 0
 
     if !has('python')
-        echoerr "Error: the pyflakes.vim plugin requires Vim to be compiled with +python"
+        " the pyflakes.vim plugin requires Vim to be compiled with +python
         finish
     endif
 
@@ -44,7 +44,8 @@ if sys.version_info[:2] < (2, 5):
 
 # get the directory this script is in: the pyflakes python module should be installed there.
 scriptdir = os.path.join(os.path.dirname(vim.eval('expand("<sfile>")')), 'pyflakes')
-sys.path.insert(0, scriptdir)
+if scriptdir not in sys.path:
+    sys.path.insert(0, scriptdir)
 
 import ast
 from pyflakes import checker, messages
@@ -114,6 +115,7 @@ def check(buffer):
         old_globals = getattr(checker,' _MAGIC_GLOBALS', [])
         checker._MAGIC_GLOBALS = set(old_globals) | builtins
 
+        filename = '(none)' if filename is None else filename
         w = checker.Checker(tree, filename)
 
         checker._MAGIC_GLOBALS = old_globals
@@ -201,6 +203,7 @@ if !exists("*s:ActivatePyflakesQuickFixWindow")
         try
             silent colder 9 " go to the bottom of quickfix stack
         catch /E380:/
+        catch /E788:/
         endtry
 
         if s:pyflakes_qf > 0
