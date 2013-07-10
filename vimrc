@@ -1,17 +1,13 @@
 scriptencoding utf-8
 
-
-" File
+" Vundle
 filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 " Github repos.
 Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'ervandew/supertab'
-Bundle 'kevinw/pyflakes-vim'
-" Bundle 'airblade/vim-gitgutter'
+Bundle 'bling/vim-airline'
 " Still need to learn how to use.
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Valloric/YouCompleteMe'
@@ -21,6 +17,14 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/EasyGrep'
 " Non-Github repos.
 Bundle 'git://git.wincent.com/command-t.git'
+
+" Disabled.
+" Bundle 'airblade/vim-gitgutter'
+" Bundle 'kevinw/pyflakes-vim'
+" Bundle 'ervandew/supertab'
+" Bundle 'scrooloose/syntastic'
+" Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/powerline'
 
 filetype plugin indent on
 
@@ -160,19 +164,20 @@ set tabstop=8 " Default tabstop.
 set expandtab " Makes tabs into spaces (set by tabstop)
 set shiftround
 
+" Undo.
 set undofile
 set undodir=~/.vim/undo
 
-" Plugin shortcuts
+" Plugin shortcuts/configuration.
 :noremap ,n :NERDTreeToggle<CR>
 let NERDTreeMouseMode=1
 nnoremap ,r :TlistToggle<CR>
 
+
+" CommandT
+let g:CommandTMaxFiles = 15000
 " Flush CommandT Buffer
 noremap <leader>f <Esc>:CommandTFlush<CR>
-
-" Settings for CommandT
-let g:CommandTMaxFiles = 15000
 
 " Shortcuts for miniBufExpl
 let g:miniBufExplMapWindowNavVim = 1
@@ -184,25 +189,15 @@ let g:miniBufExplModSelTarget = 1
 set ofu=syntaxcomplete#Complete
 set completeopt=longest,menuone
 
-" Supertab
-let g:SuperTabCrMapping = 0
-
-" Powerline
-let g:Powerline_symbols = 'fancy'
-
-" let g:pyflakes_use_quickfix = 0
+" YouCompleteMe
+" Enable completions in comments.
+let g:ycm_complete_in_comments = 1
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " TagBar
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :TagbarOpen j<CR>
-
-" GitGutter
-" nmap gh <Plug>GitGutterNextHunk
-" nmap gH <Plug>GitGutterPrevHunk
-" Always highlight lines.
-" let g:gitgutter_highlight_lines = 1
-" Turn off eager mode.
-" let g:gitgutter_eager = 0
+nmap <F6> :TagbarTogglePause<CR>
 
 " Filetype specific options
 autocmd FileType python setlocal shiftwidth=2 softtabstop=4
