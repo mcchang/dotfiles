@@ -1,0 +1,38 @@
+Host dev.tellapart.com
+  Hostname dev.tellapart.com
+  IdentityFile /Volumes/tc/keys/devel/key_pair_us-east-1
+
+Host gerrit
+  Hostname gerrit.tellapart.com
+  Port 29418
+  User mike
+
+Host dev
+  Hostname dev.tellapart.com
+  IdentityFile /Volumes/tc/keys/devel/key_pair_us-east-1
+  User ubuntu
+
+Host ec2-54-243-234-161.compute-1.amazonaws.com
+  User hadoop
+  IdentityFile /Volumes/tc/keys/ro/key_pair_us-east-1
+
+Host ec2-23-23-238-60.compute-1.amazonaws.com
+  User hadoop
+  IdentityFile /Volumes/tc/keys/ro/key_pair_us-east-1
+
+Host ec2-184-73-193-191.compute-1.amazonaws.com
+  user reporting
+  IdentityFile /Volumes/tc/keys/ro/key_pair_us-east-1
+
+Host *compute-1.amazonaws.com
+  User ubuntu
+  IdentityFile /Volumes/tc/keys/prod/key_pair_us-east-1
+
+Host *us-west-1.compute.amazonaws.com
+  User ubuntu
+  IdentityFile /Volumes/tc/keys/prod/key_pair_us-west-1
+
+Host *
+  ServerAliveInterval 60
+  # UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
