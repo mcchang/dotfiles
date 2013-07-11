@@ -2,29 +2,21 @@ scriptencoding utf-8
 
 " Vundle
 filetype off
-set rtp+=~/.vim/bundle/vundle
+set runtimepath+=~/.vim/bundle/vundle
 call vundle#rc()
-" Github repos.
-Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
+Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'gmarik/vundle'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-surround'
+Bundle 'Valloric/YouCompleteMe'
 " Still need to learn how to use.
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'majutsushi/tagbar'
-Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/EasyGrep'
-" Non-Github repos.
-Bundle 'git://git.wincent.com/command-t.git'
-
-" Disabled.
-" Bundle 'airblade/vim-gitgutter'
-" Bundle 'kevinw/pyflakes-vim'
-" Bundle 'ervandew/supertab'
-" Bundle 'scrooloose/syntastic'
-" Bundle 'Lokaltog/vim-powerline'
-" Bundle 'Lokaltog/powerline'
 
 filetype plugin indent on
 
@@ -42,6 +34,14 @@ set formatoptions=qn1 " TODO(mike): Figure out what I want to do here.
 set formatoptions+=o "Automatically insert the comment leader after 'o' or 'O' in normal
 set formatoptions-=r "Do not automatically insert a comment leader after an enter.
 set formatoptions-=t " Do no auto-wrap text using textwidth (does not apply to comments)
+
+" Autocommands.
+autocmd FileType python setlocal shiftwidth=2 softtabstop=4
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd FileType crontab set nobackup nowritebackup
+autocmd BufWrite * :%s/\s\+$//e
+autocmd FocusLost * :wa " Save when losing focus.
 
 " Indenting
 set autoindent
@@ -91,16 +91,12 @@ let mapleader = ","
 set showcmd " Display an incomplete command in the lower right of the window.
 set showmode
 set ruler " Show ruler.
+set colorcolumn=80
 
 " Line Wrapping
 set nowrap
 " set textwidth=79
 
-if exists('+colorcolumn')
-  set colorcolumn=80
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
 " set linebreak
 " Mappings
 " imap jj <Esc>
@@ -119,42 +115,33 @@ nnoremap <leader>w <C-w>v<C-w>l
 map <S-Enter> O<ESC>
 map <Enter> o<ESC>
 
-" Save when losing focus "
-au FocusLost * :wa
-
 " Sessions
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 
 " Misc
-set novisualbell " No blinking.
-set noerrorbells " No noise.
-set autowrite " Writes on make/shell commands, next buffer, etc.
 set autoread " Refresh files if they've changed outside of vim.
+set autowrite " Writes on make/shell commands, next buffer, etc.
 set backspace=indent,eol,start
-set number
-" set numberwidth=3
-set matchpairs+=<:>
-set vb t_vb= " Disable any beeps or flashes on error.
-set history=50          " keep 50 lines of command history
-set viminfo='20,\"500   " Keep a .viminfo file.
-set ttyfast
-set laststatus=2 " Always show status line.
-set shortmess=atI "Shortens messages.
 set clipboard=unnamed "Regular vim yanking will copy to OS clipboard.
+set history=50 " keep 50 lines of command history
+set laststatus=2 " Always show status line.
+set matchpairs+=<:>
+set noerrorbells " No noise.
+set novisualbell " No blinking.
+set number
+set shortmess=atI "Shortens messages.
+set ttyfast
+set vb t_vb= " Disable any beeps or flashes on error.
+set viminfo='20,\"500   " Keep a .viminfo file.
 
-" Invisible Chars
+" Invisible Chars.
 set listchars=tab:▸\ ,eol:¬
 set list
 :noremap ,i :set list!<CR>
 
-" Cursor Movement
-"map <up> gk
+" Cursor Movement.
 map k gk
-"imap <up> <C-o>gk
-"map <down> gj
 map j gj
-"imap <down> <C-o>gj
-"map E ge
 
 " Tabs
 set smarttab " Smarter tab levels.
@@ -169,28 +156,15 @@ set undofile
 set undodir=~/.vim/undo
 
 " Plugin shortcuts/configuration.
-:noremap ,n :NERDTreeToggle<CR>
-let NERDTreeMouseMode=1
-nnoremap ,r :TlistToggle<CR>
-
-
 " CommandT
 let g:CommandTMaxFiles = 15000
-" Flush CommandT Buffer
-noremap <leader>f <Esc>:CommandTFlush<CR>
-
-" Shortcuts for miniBufExpl
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
+noremap <leader>f <Esc>:CommandTFlush<CR> " Flush CommandT Buffer
 
 " Python autocomplete
-set ofu=syntaxcomplete#Complete
+set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
 
 " YouCompleteMe
-" Enable completions in comments.
 let g:ycm_complete_in_comments = 1
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
@@ -199,12 +173,8 @@ nmap <F8> :TagbarToggle<CR>
 nmap <F7> :TagbarOpen j<CR>
 nmap <F6> :TagbarTogglePause<CR>
 
-" Filetype specific options
-autocmd FileType python setlocal shiftwidth=2 softtabstop=4
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd BufWrite * :%s/\s\+$//e
-autocmd Filetype gitcommit setlocal spell textwidth=72
-
-" Make it so I can actually edit my crontab.
-au FileType crontab set nobackup nowritebackup
-
+" Syntastic
+let g:syntastic_python_checkers=['python', 'pyflakes', 'pylint', 'pep8',
+                                \'flake8', 'py3kwarn']
+let g:syntastic_python_pylint_args="--errors-only -f parseable -r n -i y"
+let g:syntastic_python_pep8_args="--ignore=E111,E12,E501,E302"
