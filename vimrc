@@ -8,7 +8,6 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
 Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'gmarik/vundle'
-Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'Valloric/YouCompleteMe'
@@ -64,7 +63,7 @@ set splitbelow splitright
 :noremap ,h :split^M^W^W<cr>
 
 " Cursor
-set cursorline
+" set cursorline
 
 " Search
 nnoremap / /\v
@@ -174,7 +173,9 @@ nmap <F7> :TagbarOpen j<CR>
 nmap <F6> :TagbarTogglePause<CR>
 
 " Syntastic
-let g:syntastic_python_checkers=['python', 'pyflakes', 'pylint', 'pep8',
-                                \'flake8', 'py3kwarn']
+" let g:syntastic_python_checkers=['python', 'pyflakes', 'pylint', 'pep8',
+"                                 \'flake8', 'py3kwarn']
+let g:syntastic_python_checkers=['python', 'pyflakes', 'pep8',]
 let g:syntastic_python_pylint_args="--errors-only -f parseable -r n -i y"
 let g:syntastic_python_pep8_args="--ignore=E111,E12,E501,E302"
+let g:syntastic_loc_list_height=5
