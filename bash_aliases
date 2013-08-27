@@ -51,6 +51,17 @@ function proxy {
 function sshvi {
   ssh -t "$1" 'exec bash -o vi'
 }
+function sshsc {
+  ssh -t "$1" 'screen -R -D mike'
+}
+
+function sshscie {
+  sshsc $(ip2hosteast "$1")
+}
+
+function sshsciw {
+  sshsc $(ip2hostwest "$1")
+}
 
 function lm {
   cat /Volumes/tc/keys/{prod,devel,ro}/meta | grep $1
@@ -108,6 +119,9 @@ function rmlock {
 }
 function rmfeedlock {
   s3cmd-prod del s3://tellapart-locks/feed_importer_$(gmid $1)
+}
+function fetch_skus {
+  s3cmd-prod get --force s3://tellapart-creative-skus/$(gmid $1) ~/Desktop/$1_skus
 }
 
 alias sshi=ssh_into
