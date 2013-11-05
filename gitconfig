@@ -4,10 +4,12 @@
 [alias]
 	r = "!sh ~/src/tellapart/run_tests.sh py && sh -c 'git push --receive-pack=\"git receive-pack --reviewer=$0@tellapart.com --reviewer=code-reviews@tellapart.com\" gerrit:tellapart HEAD:refs/for/master'"
 	reviewsuperduperextremelyfast = "!sh -c 'git push --receive-pack=\"git receive-pack --reviewer=$0@tellapart.com --reviewer=code-reviews@tellapart.com\" gerrit:tellapart HEAD:refs/for/master'"
+	reviewhook = "!sh -c '$TAHOME/py/tellapart/scripts/precommit_hook.py --review && git reviewsuperduperextremelyfast $0'"
 	reviewutil = "!sh -c 'git push --receive-pack=\"git receive-pack --reviewer=$0@tellapart.com --reviewer=code-reviews@tellapart.com\" gerrit:tellapart_util HEAD:refs/for/master'"
-	sts = "status -s"
+	s = "status -s"
 	s = "status"
 	c = "commit"
+	wc = "whatchanged"
 	g = "grep --heading --break --color"
 	co = "checkout"
 	cof = "!f() { git co $1 && git fr; }; f"
@@ -27,6 +29,7 @@
 	cleanbranches = "!git checkout master && git pull && for b in `git branch --no-merged`; do git rebase master $b; done && git checkout master && git branch --merged | grep -v master$ | xargs -n 1 git branch -d"
 	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 	lga = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit"
+	maxblame = "blame -wCCC"
 	ksreview = "!f() { local SHA=${1:-HEAD}; local BRANCH=${2:-master}; if [ $SHA == $BRANCH ]; then SHA=HEAD; fi; git difftool -y -t Kaleidoscope $BRANCH...$SHA; }; f"
 	ksshow = "!f() { local SHA=${1:-HEAD}; git difftool -y -t Kaleidoscope $SHA^..$SHA; }; f"
 [color]
