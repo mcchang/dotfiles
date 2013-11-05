@@ -41,6 +41,7 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd FileType crontab set nobackup nowritebackup
 autocmd BufWrite * :%s/\s\+$//e
 autocmd FocusLost * :wa " Save when losing focus.
+autocmd VimResized * :wincmd = " Rebalance windows on vim resize.
 
 " Indenting
 set autoindent
@@ -48,7 +49,7 @@ set smartindent
 
 " Scrollbars
 set sidescrolloff=2
-set scrolloff=3
+set scrolloff=3 " show context above/below cursorline.
 
 " Wildmenu
 set wildmenu
@@ -167,6 +168,9 @@ set completeopt=longest,menuone
 let g:ycm_complete_in_comments = 1
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+" Vim-airline
+" let g:airline#extensions#tabline#enabled = 1
+
 " TagBar
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :TagbarOpen j<CR>
@@ -179,3 +183,8 @@ let g:syntastic_python_checkers=['python', 'pyflakes', 'pep8',]
 let g:syntastic_python_pylint_args="--errors-only -f parseable -r n -i y"
 let g:syntastic_python_pep8_args="--ignore=E111,E12,E501,E302"
 let g:syntastic_loc_list_height=5
+
+" Use local vimrc file if available.
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
