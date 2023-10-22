@@ -1,0 +1,101 @@
+#!/usr/bin/env sh
+
+# the scripting-addition must be loaded manually if
+# you are running yabai on macOS Big Sur. Uncomment
+# the following line to have the injection performed
+# when the config is executed during startup.
+#
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+#
+# see this wiki page for information:
+#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
+#
+# sudo yabai --load-sa
+# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+# global settings
+yabai -m config mouse_follows_focus          off
+yabai -m config focus_follows_mouse          off
+yabai -m config window_placement             second_child
+yabai -m config window_topmost               off
+yabai -m config window_shadow                on
+yabai -m config window_opacity               off
+yabai -m config window_opacity_duration      0.0
+yabai -m config active_window_opacity        1.0
+yabai -m config normal_window_opacity        0.90
+yabai -m config window_border                off
+yabai -m config window_border_width          4
+yabai -m config active_window_border_color   0xff775759
+yabai -m config normal_window_border_color   0xff555555
+yabai -m config insert_feedback_color        0xffd75f5f
+yabai -m config split_ratio                  0.50
+yabai -m config auto_balance                 off
+yabai -m config mouse_modifier               fn
+yabai -m config mouse_action1                move
+yabai -m config mouse_action2                resize
+yabai -m config mouse_drop_action            stack
+
+# general space settings
+yabai -m config layout                       bsp
+yabai -m config top_padding                  4
+yabai -m config bottom_padding               4
+yabai -m config left_padding                 4
+yabai -m config right_padding                4
+yabai -m config window_gap                   4
+
+# space specific configurations
+yabai -m config --space 2 layout             stack
+
+# float app whitelist
+# yabai -m rule --add app="^Slack$" manage=off
+yabai -m rule --add app="^1Password$" manage=off
+yabai -m rule --add app="^Acrobat Reader$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^Alfred 2$" manage=off
+yabai -m rule --add app="^Alfred Preferences$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Arq$" manage=off
+yabai -m rule --add app="^Bartender 4$" manage=off
+yabai -m rule --add app="^BetterTouchTool$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Contexts$" manage=off
+yabai -m rule --add app="^DaisyDisk$" manage=off
+yabai -m rule --add app="^Dark Noise$" manage=off
+yabai -m rule --add app="^Dato$" manage=off
+yabai -m rule --add app="^Discord$" manage=off
+yabai -m rule --add app="^Due$" manage=off
+yabai -m rule --add app="^Fantastical.*$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Fluor$" manage=off
+yabai -m rule --add app="^Fork$" manage=off
+yabai -m rule --add app="^Loom.*$" manage=off
+yabai -m rule --add app="^Photos$" manage=off
+yabai -m rule --add app="^Preview$" manage=off
+yabai -m rule --add app="^Queue$" manage=off
+yabai -m rule --add app="^QuickGPT$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^Rewind$" manage=off
+yabai -m rule --add app="^Shortcuts$" manage=off
+yabai -m rule --add app="^Spotify$" manage=off
+yabai -m rule --add app="^Streaks$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^ToothFairy$" manage=off
+yabai -m rule --add app="^Tot$" manage=off
+yabai -m rule --add app="^Zoom$" manage=off
+
+# Float apps with a default grid size
+yabai -m rule --add app="^iTerm2$" manage=off grid=1:1:0:0:1:1
+yabai -m rule --add app="^Warp$" manage=off grid=1:1:0:0:1:1
+yabai -m rule --add app="^Messages$" manage=off grid=1:4:1:0:2:1
+yabai -m rule --add app="^Signal$" manage=off grid=1:4:1:0:2:1
+yabai -m rule --add app="^Messenger$" manage=off grid=1:4:1:0:2:1
+yabai -m rule --add app="^Slack$" manage=off grid=1:6:1:0:4:1
+# yabai -m rule --add app="^Rewind$" manage=off grid=1:6:1:0:4:1
+yabai -m rule --add app="^Discord$" manage=off grid=1:6:1:0:4:1
+
+# Signals
+yabai -m signal --add event=window_created app="^Cron$" action="yabai -m window $YABAI_WINDOW_ID --toggle zoom-fullscreen"
+yabai -m signal --add event=window_created app="^Maps$" action="yabai -m window $YABAI_WINDOW_ID --toggle zoom-fullscreen"
+
+echo "yabai configuration loaded.."
